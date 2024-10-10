@@ -12,7 +12,8 @@ const Keyboard::Key controls[4] = {
 
 const Vector2f paddleSize(25.f, 100.f);
 const float ballRadius = 10.f;
-const int gameWidth = 120;
+const float ballAngl = 0.0f;
+const int gameWidth = 800;
 const int gameHeight = 600;
 const float paddleSpeed = 400.f;
 const float paddleOffsetWall = 10.f;
@@ -31,9 +32,9 @@ void Load() {
 	ball.setOrigin(ballRadius / 2.f, ballRadius / 2.f);  // Should be half the ball width and height
 	// Reset paddle position
 	paddles[0].setPosition(Vector2f(paddleOffsetWall + paddleSize.x / 2.f, gameHeight / 2.f));
-	paddles[1].setPosition(Vector2f(paddleOffsetWall + paddleSize.y / 2.f, gameHeight / 2.f));
+	paddles[1].setPosition(Vector2f(gameWidth - paddleOffsetWall - paddleSize.x / 2.f, gameHeight / 2.f)); // both paddles start in the right position
 	// Reset ball position
-	ball.setPosition(40, 300);
+	ball.setPosition(gameWidth / 2.f, gameHeight / 2.f); // ball starts in top left corner 
 } // Load
 
 void Update(RenderWindow &window) {
